@@ -1,0 +1,414 @@
+body {
+  margin: 0;
+  background: #0f1117;
+  color: #f5f5f5;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button {
+  border: 1px solid #555;
+  border-radius: 10px;
+  background: #2d2f3a;
+  color: white;
+  padding: 10px 16px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #3b3e4d;
+}
+
+.app {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 36px 48px;
+}
+
+.title-card {
+  align-items: center;
+}
+
+.detail-card {
+  max-width: 1100px;
+}
+
+.warning {
+  color: red;
+  font-weight: bold;
+}
+
+.top-buttons {
+  display: flex;
+  gap: 16px;
+  margin: 24px 0;
+  justify-content: center;
+}
+
+.top-grid {
+  max-width: 1100px;
+  margin: 40px auto 0;
+}
+
+.top-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.panel,
+.roadmap-editor,
+.step-box {
+  border: 1px solid #333;
+  border-radius: 16px;
+  padding: 18px;
+  background: #171923;
+  margin: 16px 0;
+}
+
+.empty {
+  background: #17395c;
+  padding: 16px;
+  border-radius: 10px;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.title-card {
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: #171923;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.count {
+  font-size: 13px;
+  color: #94a3b8;
+
+  display: flex;
+  justify-content: flex-end;
+}
+
+.title-card:hover {
+  background: #222636;
+}
+
+.count,
+.meta {
+  color: #aaa;
+  font-size: 13px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: #262936;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 10px;
+  padding: 11px;
+  font-size: 15px;
+  margin: 8px 0 16px;
+}
+
+textarea {
+  min-height: 90px;
+}
+
+.primary-button {
+  background: #2563eb;
+}
+
+.delete-button,
+.small-delete {
+  background: #7f1d1d;
+}
+
+.small-delete {
+  padding: 7px 11px;
+  font-size: 12px;
+}
+
+.step-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.mode-row,
+.mini-radio-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 10px 0 14px;
+}
+
+.mode-row label,
+.mini-radio-row label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.mode-row input,
+.mini-radio-row input {
+  width: auto;
+  margin: 0;
+}
+
+.branch-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.branch-box {
+  border-left: 2px solid #334155;
+  padding-left: 12px;
+}
+
+.branch-title {
+  border: none;
+  background: transparent;
+  font-weight: bold;
+  font-size: 16px;
+  padding-left: 0;
+}
+
+.flow-box {
+  height: 620px;
+  background: #0b1020;
+  border: 1px solid #334155;
+  border-radius: 18px;
+  overflow: hidden;
+  margin: 16px 0;
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.12);
+}
+
+.react-flow__node {
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 600;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.react-flow__edge-path {
+  stroke: #e5e7eb;
+  stroke-width: 3;
+}
+
+.react-flow__edge-text {
+  fill: #e0f2fe;
+  font-size: 16px;
+  font-weight: bold;
+  stroke: #0b1020;
+  stroke-width: 8px;
+  paint-order: stroke;
+}
+
+.react-flow__arrowhead path {
+  fill: #e5e7eb;
+}
+
+.react-flow__handle {
+  width: 10px;
+  height: 10px;
+  background: #e5e7eb;
+  border: 2px solid #0f172a;
+}
+
+.react-flow__background {
+  opacity: 0.45;
+}
+
+.react-flow__controls {
+  background: #111827;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.react-flow__controls button {
+  background: #111827;
+  color: white;
+  border-bottom: 1px solid #334155;
+}
+
+.react-flow__controls button:hover {
+  background: #1e293b;
+}
+
+p {
+  line-height: 1.7;
+}
+@media (max-width: 768px) {
+  .top-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .branch-area {
+    grid-template-columns: 1fr;
+  }
+
+  .top-buttons,
+  .search-controls,
+  .card-buttons {
+    flex-direction: column;
+  }
+
+  .app {
+    padding: 18px;
+  }
+
+  .react-flow__node {
+    font-size: 13px;
+  }
+}
+.back-button {
+  margin-bottom: 32px;
+}
+h2 {
+  margin-top: 24px;
+  margin-bottom: 36px;
+  letter-spacing: 0.03em;
+}
+.app {
+  border-left: 1px solid #1f2937;
+  border-right: 1px solid #1f2937;
+}
+
+h1 {
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+h2, h3 {
+  text-align: center;
+}
+
+.warning {
+  text-align: center;
+  background: rgba(127, 29, 29, 0.18);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+
+.panel,
+.step-box,
+.roadmap-editor,
+.title-card {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.18);
+}
+
+.primary-button {
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.title-card {
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.title-card:hover {
+  transform: translateY(-2px);
+  border-color: #38bdf8;
+}
+
+.back-button {
+  margin-top: 32px;
+  margin-bottom: 56px;
+}
+
+.warning {
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.detail-card {
+  max-width: 860px;
+  margin: 48px auto 0;
+  padding: 32px;
+  background: #171923;
+  border: 1px solid #334155;
+  border-radius: 18px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.32);
+}
+
+.detail-section {
+  padding: 24px 0;
+  border-bottom: 1px solid #334155;
+}
+
+.detail-section:last-child {
+  border-bottom: none;
+}
+
+.detail-section h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #e0f2fe;
+}
+
+.detail-section p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+.form-page {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.card-buttons button {
+  min-height: 48px;
+}
+
+.card-buttons .primary-button {
+  min-width: 220px;
+}
+
+.card-buttons .back-button {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 20px;
+}
+
+.card-buttons {
+  column-gap: 24px;
+}
