@@ -52,12 +52,23 @@ const samplePosts = [
     createdAt: "2026/5/25 5:52:42",
     steps: [
       {
+        id: "line-step-0",
+        type: "normal",
+        content: "LINE電話のみ or 電話アプリ全般",
+        leftTitle: "Aの場合",
+        leftContent: "",
+        rightTitle: "Bの場合",
+        rightContent: "",
+        leftSteps: [],
+        rightSteps: [],
+      },
+      {
         id: "line-step-1",
         type: "branch",
         content: "",
         leftTitle: "LINEのみの場合",
         leftContent: "LINEアプリの更新を確認。\n更新があれば更新する。",
-        rightTitle: "全体の場合",
+        rightTitle: "電話アプリ全般の場合",
         rightContent: "端末電源OFF→ON",
         leftSteps: [
           {
@@ -180,12 +191,23 @@ const samplePosts = [
     createdAt: "2026/5/25 6:32:28",
     steps: [
       {
+        id: "third-step-0",
+        type: "normal",
+        content: "SMS拒否設定を確認",
+        leftTitle: "Aの場合",
+        leftContent: "",
+        rightTitle: "Bの場合",
+        rightContent: "",
+        leftSteps: [],
+        rightSteps: [],
+      },
+      {
         id: "third-step-1",
         type: "branch",
         content: "",
-        leftTitle: "拒否あり",
+        leftTitle: "拒否されていた場合",
         leftContent: "解除して試す",
-        rightTitle: "拒否なし",
+        rightTitle: "拒否されていない場合",
         rightContent: "端末再起動",
         leftSteps: [
           {
@@ -755,11 +777,19 @@ function RoadmapView({ steps }) {
     });
   };
 
-  addNodes(steps);
+  addNodes(steps, null, 400, 120);
 
   return (
     <div className="flow-box">
-      <ReactFlow nodes={nodes} edges={edges} fitView colorMode="dark">
+      <ReactFlow
+        nodes={nodes}
+        edges={edges}
+        fitView
+        fitViewOptions={{
+          padding: 0.25,
+        }}
+        colorMode="dark"
+      >
         <Background />
         <Controls />
       </ReactFlow>
