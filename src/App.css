@@ -412,3 +412,10 @@ textarea:focus {
 .card-buttons {
   column-gap: 24px;
 }
+
+h1,
+h2,
+h3,
+label {
+  color: #f8fafc;
+}
