@@ -34,7 +34,6 @@ const emptyForm = () => ({
 function App() {
   const [page, setPage] = useState("top");
   const API_URL = "https://roadmap-knowledge-app.onrender.com";
-
   const [posts, setPosts] = useState([]);
   const [form, setForm] = useState(emptyForm());
   const [selectedPost, setSelectedPost] = useState(null);
