@@ -286,19 +286,9 @@ const samplePosts = [
 
 function App() {
   const [page, setPage] = useState("top");
-  const [posts, setPosts] = useState(() => {
-    const savedPosts = localStorage.getItem("knowledge_posts");
+  const API_URL = "https://roadmap-knowledge-app.onrender.com";
 
-    if (savedPosts) {
-      const parsedPosts = JSON.parse(savedPosts);
-
-      if (parsedPosts.length > 0) {
-        return parsedPosts;
-      }
-    }
-
-    return samplePosts;
-  });
+  const [posts, setPosts] = useState([]);
   const [form, setForm] = useState(emptyForm());
   const [selectedPost, setSelectedPost] = useState(null);
   const [editingPost, setEditingPost] = useState(null);
@@ -306,8 +296,11 @@ function App() {
   const [selectedService, setSelectedService] = useState("すべて");
 
   useEffect(() => {
-    localStorage.setItem("knowledge_posts", JSON.stringify(posts));
-  }, [posts]);
+    fetch(`${API_URL}/posts`)
+      .then((res) => res.json())
+      .then((data) => setPosts(data))
+      .catch((err) => console.error("投稿取得エラー:", err));
+  }, []);
 
   const updateForm = (key, value) => setForm({ ...form, [key]: value });
 
