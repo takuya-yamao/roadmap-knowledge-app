@@ -31,259 +31,6 @@ const emptyForm = () => ({
   createdAt: "",
 });
 
-const samplePosts = [
-  {
-    id: "sample-line-voice",
-    title: "LINE電話　相手の声聞こえない",
-    service: "LINE",
-    question: "LINE電話で相手の声が聞こえなくなった。できるように改善して欲しい。",
-    rootCause: "支援者に確認",
-    mode: "roadmap",
-    solution: "",
-    useCount: 6,
-    useHistory: [
-      new Date().toISOString(),
-      new Date().toISOString(),
-      new Date().toISOString(),
-      new Date().toISOString(),
-      new Date().toISOString(),
-      new Date().toISOString(),
-    ],
-    createdAt: "2026/5/25 5:52:42",
-    steps: [
-      {
-        id: "line-step-0",
-        type: "normal",
-        content: "LINE電話のみ or 電話アプリ全般",
-        leftTitle: "Aの場合",
-        leftContent: "",
-        rightTitle: "Bの場合",
-        rightContent: "",
-        leftSteps: [],
-        rightSteps: [],
-      },
-      {
-        id: "line-step-1",
-        type: "branch",
-        content: "",
-        leftTitle: "LINEのみの場合",
-        leftContent: "LINEアプリの更新を確認。\n更新があれば更新する。",
-        rightTitle: "電話アプリ全般の場合",
-        rightContent: "端末電源OFF→ON",
-        leftSteps: [
-          {
-            id: "line-left-1",
-            type: "normal",
-            content: "端末電源OFF→ON",
-            leftTitle: "Aの場合",
-            leftContent: "",
-            rightTitle: "Bの場合",
-            rightContent: "",
-            leftSteps: [],
-            rightSteps: [],
-          },
-          {
-            id: "line-left-2",
-            type: "normal",
-            content: "LINEアプリ　ストレージ消去\n※BU後、支援者立ち会いの上実施",
-            leftTitle: "Aの場合",
-            leftContent: "",
-            rightTitle: "Bの場合",
-            rightContent: "",
-            leftSteps: [],
-            rightSteps: [],
-          },
-          {
-            id: "line-left-3",
-            type: "normal",
-            content: "LINEのヘルプ、障害情報確認",
-            leftTitle: "Aの場合",
-            leftContent: "",
-            rightTitle: "Bの場合",
-            rightContent: "",
-            leftSteps: [],
-            rightSteps: [],
-          },
-          {
-            id: "line-left-4",
-            type: "normal",
-            content: "LINE問い合わせ",
-            leftTitle: "Aの場合",
-            leftContent: "",
-            rightTitle: "Bの場合",
-            rightContent: "",
-            leftSteps: [],
-            rightSteps: [],
-          },
-        ],
-        rightSteps: [
-          {
-            id: "line-right-1",
-            type: "normal",
-            content: "保護シート等で物理的に塞いでないか確認。",
-            leftTitle: "Aの場合",
-            leftContent: "",
-            rightTitle: "Bの場合",
-            rightContent: "",
-            leftSteps: [],
-            rightSteps: [],
-          },
-          {
-            id: "line-right-2",
-            type: "normal",
-            content: "Bluetoothに繋がっていないか確認。",
-            leftTitle: "Aの場合",
-            leftContent: "",
-            rightTitle: "Bの場合",
-            rightContent: "",
-            leftSteps: [],
-            rightSteps: [],
-          },
-          {
-            id: "line-right-3",
-            type: "normal",
-            content: "①セーフモード\n②ソフトウェアアップデート\n③アプリ設定リセット\n上記3点を提案",
-            leftTitle: "Aの場合",
-            leftContent: "",
-            rightTitle: "Bの場合",
-            rightContent: "",
-            leftSteps: [],
-            rightSteps: [],
-          },
-          {
-            id: "line-right-4",
-            type: "normal",
-            content: "点検誘導",
-            leftTitle: "Aの場合",
-            leftContent: "",
-            rightTitle: "Bの場合",
-            rightContent: "",
-            leftSteps: [],
-            rightSteps: [],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: "sample-app-limit",
-    title: "電話帳アプリの登録件数上限",
-    service: "アプリ",
-    question: "電話帳アプリの登録件数上限を知りたい。",
-    rootCause: "実機検証結果",
-    mode: "normal",
-    solution: "XXX件",
-    useCount: 2,
-    useHistory: [new Date().toISOString(), new Date().toISOString()],
-    createdAt: "2026/5/25 6:22:51",
-    steps: [createStep()],
-  },
-  {
-    id: "sample-third-login",
-    title: "他社のアプリ「〇〇」のログイン不可",
-    service: "3rd",
-    question: "他社のアプリ「〇〇」にログインするための認証コードが届かない",
-    rootCause: "社内資料〇〇参照",
-    mode: "roadmap",
-    solution: "",
-    useCount: 0,
-    useHistory: [],
-    createdAt: "2026/5/25 6:32:28",
-    steps: [
-      {
-        id: "third-step-0",
-        type: "normal",
-        content: "SMS拒否設定を確認",
-        leftTitle: "Aの場合",
-        leftContent: "",
-        rightTitle: "Bの場合",
-        rightContent: "",
-        leftSteps: [],
-        rightSteps: [],
-      },
-      {
-        id: "third-step-1",
-        type: "branch",
-        content: "",
-        leftTitle: "拒否されていた場合",
-        leftContent: "解除して試す",
-        rightTitle: "拒否されていない場合",
-        rightContent: "端末再起動",
-        leftSteps: [
-          {
-            id: "third-left-1",
-            type: "normal",
-            content: "端末再起動",
-            leftTitle: "Aの場合",
-            leftContent: "",
-            rightTitle: "Bの場合",
-            rightContent: "",
-            leftSteps: [],
-            rightSteps: [],
-          },
-          {
-            id: "third-left-2",
-            type: "normal",
-            content: "通信系トラシュー",
-            leftTitle: "Aの場合",
-            leftContent: "",
-            rightTitle: "Bの場合",
-            rightContent: "",
-            leftSteps: [],
-            rightSteps: [],
-          },
-          {
-            id: "third-left-3",
-            type: "normal",
-            content: "アプリのヘルプ・よくある質問をチェック",
-            leftTitle: "Aの場合",
-            leftContent: "",
-            rightTitle: "Bの場合",
-            rightContent: "",
-            leftSteps: [],
-            rightSteps: [],
-          },
-          {
-            id: "third-left-4",
-            type: "normal",
-            content: "デベロッパー問い合わせ",
-            leftTitle: "Aの場合",
-            leftContent: "",
-            rightTitle: "Bの場合",
-            rightContent: "",
-            leftSteps: [],
-            rightSteps: [],
-          },
-        ],
-        rightSteps: [
-          {
-            id: "third-right-1",
-            type: "normal",
-            content: "アプリのヘルプ・よくある質問をチェック",
-            leftTitle: "Aの場合",
-            leftContent: "",
-            rightTitle: "Bの場合",
-            rightContent: "",
-            leftSteps: [],
-            rightSteps: [],
-          },
-          {
-            id: "third-right-2",
-            type: "normal",
-            content: "デベロッパー問い合わせ",
-            leftTitle: "Aの場合",
-            leftContent: "",
-            rightTitle: "Bの場合",
-            rightContent: "",
-            leftSteps: [],
-            rightSteps: [],
-          },
-        ],
-      },
-    ],
-  },
-];
-
 function App() {
   const [page, setPage] = useState("top");
   const API_URL = "https://roadmap-knowledge-app.onrender.com";
@@ -304,68 +51,89 @@ function App() {
 
   const updateForm = (key, value) => setForm({ ...form, [key]: value });
 
-  const savePost = () => {
+  const savePost = async () => {
     if (!form.title.trim()) return alert("タイトルは必須です");
     if (!form.rootCause.trim()) return alert("根拠は必須です");
 
-    if (editingPost) {
-      const updatedPost = {
-        ...form,
-        id: editingPost.id,
-        createdAt: editingPost.createdAt,
-        useCount: editingPost.useCount || 0,
-      };
+    try {
+      if (editingPost) {
+        const res = await fetch(`${API_URL}/posts/${editingPost.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+        });
 
-      setPosts(posts.map((post) => post.id === editingPost.id ? updatedPost : post));
-      setSelectedPost(updatedPost);
-      setEditingPost(null);
-    } else {
-      const newPost = {
-        ...form,
-        id: crypto.randomUUID(),
-        createdAt: new Date().toLocaleString(),
-        useCount: 0,
-      };
+        if (!res.ok) throw new Error("更新に失敗しました");
 
-      setPosts([newPost, ...posts]);
+        const updatedPost = await res.json();
+
+        setPosts(posts.map((post) => post.id === editingPost.id ? updatedPost : post));
+        setSelectedPost(updatedPost);
+        setEditingPost(null);
+      } else {
+        const res = await fetch(`${API_URL}/posts`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+        });
+
+        if (!res.ok) throw new Error("投稿に失敗しました");
+
+        const newPost = await res.json();
+
+        setPosts([newPost, ...posts]);
+      }
+
+      setForm(emptyForm());
+      setPage("top");
+    } catch (err) {
+      console.error(err);
+      alert("保存に失敗しました");
     }
-
-    setForm(emptyForm());
-    setPage("top");
   };
 
-  const deletePost = (id) => {
+  const deletePost = async (id) => {
     if (!confirm("この投稿を削除しますか？")) return;
-    setPosts(posts.filter((post) => post.id !== id));
-    setPage("top");
-  };
 
-  const usePost = (id) => {
+    try {
+      const res = await fetch(`${API_URL}/posts/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!res.ok) throw new Error("削除に失敗しました");
+
+      setPosts(posts.filter((post) => post.id !== id));
+      setPage("top");
+    } catch (err) {
+      console.error(err);
+      alert("削除に失敗しました");
+    }
+  };
+  const usePost = async (id) => {
     if (!confirm("この情報をお客様対応に使用しましたか？")) return;
 
-    const now = new Date().toISOString();
+    try {
+      const res = await fetch(`${API_URL}/posts/${id}/use`, {
+        method: "PATCH",
+      });
 
-    const updatedPosts = posts.map((post) =>
-      post.id === id
-        ? {
-            ...post,
-            useCount: (post.useCount || 0) + 1,
-            useHistory: [...(post.useHistory || []), now],
-          }
-        : post
-    );
+      if (!res.ok) throw new Error("使用回数更新に失敗しました");
 
-    setPosts(updatedPosts);
+      const updatedPost = await res.json();
 
-    setSelectedPost((current) =>
-      current && current.id === id
-        ? {
-            ...current,
-            useCount: (current.useCount || 0) + 1,
-            useHistory: [...(current.useHistory || []), now],
-          }
-        : current
-    );
+      setPosts(posts.map((post) => post.id === id ? updatedPost : post));
+
+      setSelectedPost((current) =>
+        current && current.id === id ? updatedPost : current
+      );
+    } catch (err) {
+      console.error(err);
+      alert("使用回数の更新に失敗しました");
+    }
   };
 
   const openDetail = (post) => {
