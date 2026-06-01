@@ -56,12 +56,17 @@ function App() {
 
     try {
       if (editingPost) {
+        const updatedData = {
+          ...form,
+          id: editingPost.id,
+          useCount: editingPost.useCount ?? 0,
+          useHistory: editingPost.useHistory ?? [],
+        };
+
         const res = await fetch(`${API_URL}/posts/${editingPost.id}`, {
           method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(form),
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ data: updatedData }),
         });
 
         if (!res.ok) throw new Error("更新に失敗しました");
@@ -72,12 +77,18 @@ function App() {
         setSelectedPost(updatedPost);
         setEditingPost(null);
       } else {
+        const newData = {
+          ...form,
+          id: crypto.randomUUID(),
+          useCount: 0,
+          useHistory: [],
+          createdAt: new Date().toISOString(),
+        };
+
         const res = await fetch(`${API_URL}/posts`, {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(form),
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ data: newData }),
         });
 
         if (!res.ok) throw new Error("投稿に失敗しました");
