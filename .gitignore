@@ -25,3 +25,13 @@ dist-ssr
 backend/venv/
 backend/__pycache__/
 *.pyc
+
+.env
+.env.*
+!.env.example
+*.db
+*.sqlite
+*.sqlite3
+
+# Claude Code のローカル開発用設定
+.claude/

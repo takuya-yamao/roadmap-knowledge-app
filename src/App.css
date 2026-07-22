@@ -94,6 +94,8 @@ button:hover {
     transform 0.15s ease,
     background 0.15s ease,
     border-color 0.15s ease;
+  width: 100%;
+  text-align: left;
 }
 
 .count {
@@ -284,6 +286,10 @@ p {
   .react-flow__node {
     font-size: 13px;
   }
+
+  .login-card {
+    padding: 22px;
+  }
 }
 .back-button {
   margin-bottom: 32px;
@@ -301,6 +307,16 @@ h2 {
 h1 {
   text-align: center;
   letter-spacing: 0.04em;
+  /* タイトルは常に1行に保ちます（文字サイズは index.css の 56px / 36px を継承）。 */
+  white-space: nowrap;
+}
+
+/* 640px以下だと36pxのままでは1行に収まらないため、ここから画面幅に合わせて縮小します。 */
+@media (max-width: 640px) {
+  h1 {
+    font-size: clamp(1.05rem, 5.2vw, 36px);
+    letter-spacing: 0.02em;
+  }
 }
 
 h2, h3 {
@@ -418,4 +434,177 @@ h2,
 h3,
 label {
   color: #f8fafc;
+}
+
+.loading-screen,
+.login-page {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  box-sizing: border-box;
+  background:
+    radial-gradient(circle at top, rgba(37, 99, 235, 0.22), transparent 42%),
+    #0f1117;
+}
+
+.login-card {
+  width: min(480px, 100%);
+  padding: 32px;
+  border: 1px solid #334155;
+  border-radius: 18px;
+  background: #171923;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.38);
+  text-align: left;
+}
+
+.login-card h1 {
+  font-size: clamp(0.85rem, 4.3vw, 42px);
+  text-align: center;
+}
+
+.login-description,
+.login-note,
+.helper-text,
+.status-message {
+  color: #cbd5e1;
+  text-align: center;
+}
+
+.login-note {
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+.login-button {
+  width: 100%;
+  margin-top: 8px;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.session-bar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.session-bar button {
+  padding: 7px 11px;
+  font-size: 13px;
+}
+
+
+.error-banner,
+.success-banner {
+  max-width: 950px;
+  margin: 16px auto;
+  padding: 14px 16px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.error-banner {
+  color: #fecaca;
+  background: rgba(127, 29, 29, 0.35);
+  border: 1px solid rgba(248, 113, 113, 0.55);
+}
+
+.success-banner {
+  color: #bbf7d0;
+  background: rgba(20, 83, 45, 0.35);
+  border: 1px solid rgba(74, 222, 128, 0.45);
+}
+
+.user-management {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.user-create-form {
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr 0.8fr auto;
+  gap: 12px;
+  align-items: end;
+  padding: 20px;
+  margin: 24px 0;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  background: #171923;
+}
+
+.user-create-form h3 {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.user-create-form input,
+.user-create-form select {
+  margin: 0;
+}
+
+.user-list {
+  display: grid;
+  gap: 12px;
+}
+
+.user-row {
+  display: grid;
+  grid-template-columns: minmax(140px, 1fr) 120px 80px auto minmax(150px, 0.8fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  background: #171923;
+}
+
+.user-row div {
+  display: grid;
+  gap: 5px;
+  text-align: left;
+}
+
+.user-row small {
+  color: #94a3b8;
+}
+
+.user-row select {
+  margin: 0;
+}
+
+.user-row .reset-password-input {
+  margin: 0;
+}
+
+.active-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.active-toggle input {
+  width: auto;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .user-create-form,
+  .user-row {
+    grid-template-columns: 1fr;
+  }
+
+  .user-row div {
+    text-align: center;
+  }
 }
