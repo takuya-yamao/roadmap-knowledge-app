@@ -210,19 +210,19 @@ function App() {
     setPage("top");
   };
 
+  const getRecentUseCount = (post) => {
+    const oneWeekAgo = new Date();
+    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+    return (post.useHistory || []).filter((usedAt) => new Date(usedAt) >= oneWeekAgo).length;
+  };
+
   const filteredPosts = posts.filter((post) => {
     const words = searchWord.trim().split(/\s+/).filter(Boolean);
     const serviceMatch = selectedService === "すべて" || post.service === selectedService;
     const target = `${post.service} ${post.title} ${post.question} ${post.solution} ${post.rootCause} ${JSON.stringify(post.steps)}`;
     const wordMatch = words.length === 0 || words.every((word) => target.includes(word));
     return serviceMatch && wordMatch;
-  });
-
-  const getRecentUseCount = (post) => {
-    const oneWeekAgo = new Date();
-    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
-    return (post.useHistory || []).filter((usedAt) => new Date(usedAt) >= oneWeekAgo).length;
-  };
+  }).sort((a, b) => getRecentUseCount(b) - getRecentUseCount(a));
 
   const getTrendLabel = (count) => {
     if (count >= 5) return "🔥入電激増";
@@ -332,7 +332,7 @@ function App() {
             </select>
           </div>
 
-          <p>検索結果：{filteredPosts.length}件</p>
+          <p>検索結果：{filteredPosts.length}件（直近7日間の使用回数が多い順）</p>
           <TitleList
             posts={filteredPosts}
             openDetail={openDetail}
